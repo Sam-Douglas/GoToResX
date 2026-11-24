@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".github/workflows/ci-cd.yaml" />
+    <File Path="LICENSE.txt" />
+    <File Path="README.md" />
+    <File Path="vs-publish.json" />
+  </Folder>
+  <Project Path="MyExtension.Core/MyExtension.Core.csproj" />
+  <Project Path="MyExtension.UnitTests/MyExtension.UnitTests.csproj" />
+  <Project Path="MyExtension/MyExtension.csproj">
+    <Deploy />
+  </Project>
+</Solution>
