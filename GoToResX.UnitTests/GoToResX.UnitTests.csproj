@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyExtension.Core\MyExtension.Core.csproj" />
+    <ProjectReference Include="..\GoToResX.Core\GoToResX.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

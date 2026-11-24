@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: "Pre-release"
+
+# Run manually (Actions > Pre-release > Run workflow) to build, test and create a GitHub pre-release with the .vsix attached.
+# Nothing is published to the Open VSIX Gallery or the Marketplace.
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+
+env:
+  Solution: GoToResX.slnx
+  VsixManifestPath: GoToResX\source.extension.vsixmanifest
+  VsixPath: GoToResX\bin\Release\net472\GoToResX.vsix
+  DisplayName: Go To ResX
+
+jobs:
+  pre-release:
+    name: Build, Test & Pre-release
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Set VSIX version
+        id: vsix_version
+        uses: timheuer/vsix-version-stamp@v2
+        with:
+          manifest-file: ${{ env.VsixManifestPath }}
+
+      - name: Restore
+        run: msbuild ${{ env.Solution }} /t:Restore /v:m
+
+      - name: Build
+        run: msbuild ${{ env.Solution }} /t:Build /v:m /m /p:Configuration=Release /p:DeployExtension=false
+
+      - name: Test
+        run: dotnet test GoToResX.UnitTests --configuration Release
+
+      - name: Create GitHub pre-release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ env.DisplayName }} ${{ steps.vsix_version.outputs.version-number }} (pre-release)
+          body: Pre-release ${{ steps.vsix_version.outputs.version-number }}. Download GoToResX.vsix below and double-click it to install.
+          tag_name: v${{ steps.vsix_version.outputs.version-number }}-pre
+          prerelease: true
+          files: ${{ env.VsixPath }}

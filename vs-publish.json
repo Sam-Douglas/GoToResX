@@ -2,10 +2,10 @@
   "$schema": "http://json.schemastore.org/vsix-publish",
   "categories": [ "coding" ],
   "identity": {
-    "internalName": "MyExtension",
-    "tags": [ "my extension" ]
+    "internalName": "GoToResX",
+    "tags": [ "resx", "localization", "blazor", "razor" ]
   },
   "overview": "README.md",
   "publisher": "your-marketplace-publisher-id",
-  "repo": "https://github.com/your-account/MyExtension"
+  "repo": "https://github.com/Sam-Douglas/GoToResX"
 }

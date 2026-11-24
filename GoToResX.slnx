@@ -5,9 +5,9 @@
     <File Path="README.md" />
     <File Path="vs-publish.json" />
   </Folder>
-  <Project Path="MyExtension.Core/MyExtension.Core.csproj" />
-  <Project Path="MyExtension.UnitTests/MyExtension.UnitTests.csproj" />
-  <Project Path="MyExtension/MyExtension.csproj">
+  <Project Path="GoToResX.Core/GoToResX.Core.csproj" />
+  <Project Path="GoToResX.UnitTests/GoToResX.UnitTests.csproj" />
+  <Project Path="GoToResX/GoToResX.csproj">
     <Deploy />
   </Project>
 </Solution>
