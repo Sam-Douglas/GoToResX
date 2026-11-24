@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="GoToResX.486faa60-ebbf-4a2d-a3c5-3bf946298429" Version="0.0.1" Language="en-GB" Publisher="Sam Douglas" />
+    <Identity Id="GoToResX.486faa60-ebbf-4a2d-a3c5-3bf946298429" Version="0.2.0" Language="en-GB" Publisher="Sam Douglas" />
     <DisplayName>Go To ResX</DisplayName>
     <Description>Right-click in a Blazor .razor file to open the .resx file its IStringLocalizer reads from.</Description>
     <MoreInfo>https://github.com/Sam-Douglas/GoToResX</MoreInfo>
